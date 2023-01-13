@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo list</title>
+</head>
+<body>
+{% for object in object_list %}
+    <ul>
+        <li>{{ object.title }}</li>
+        <li>{{ object.memo }}</li>
+        <li>{{ object.created }}</li>
+    </ul>
+{% endfor %}
+
+</body>
+</html>
