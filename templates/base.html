@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% load django_bootstrap5 %}
+<html lang="ja">
+<head>
+    {% bootstrap_css %}
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+{% block header %} {% endblock header %}
+{% block content %} {% endblock content %}
+{% block footer %} {% endblock footer %}
+</body>
+</html>

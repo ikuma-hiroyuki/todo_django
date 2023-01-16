@@ -1,17 +1,25 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>Todo list</title>
-</head>
-<body>
-{% for object in object_list %}
-    <ul>
-        <li>{{ object.title }}</li>
-        <li>{{ object.memo }}</li>
-        <li>{{ object.created }}</li>
-    </ul>
-{% endfor %}
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block title %}List{% endblock title %}
+
+{% block header %}
+    <div class="alert alert-dark" role="alert">
+        <h1>list</h1>
+    </div>
+{% endblock header %}
+
+{% block content %}
+    <div class="container">
+        <a href="{% url 'create' %}" class="btn btn-secondary mb-2">新規作成</a>
+        {% for item in object_list %}
+            <div class="alert alert-{{ item.priority }}" role="alert">
+                <p>{{ item.title }}</p>
+                <p>期日:{{ item.duedate |date:"o/m/d"}}</p>
+                {#参照先urlを動的に変更#}
+                <a class="btn btn-info" href="{% url 'update' item.pk %}" role="button">編集画面へ</a>
+                <a class="btn btn-success" href="{% url 'delete' item.pk %}" role="button">削除画面へ</a>
+                <a class="btn btn-primary" href="{% url 'detail' item.pk %}" role="button">詳細画面へ</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

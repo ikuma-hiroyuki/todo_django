@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Update{% endblock title %}
+
+{% block content %}
+    <form action="" method="post"> {% csrf_token %}
+        {#{{ form.as_p }}の代わりに以下のようにも書ける#}
+        {{ form.title }}
+        {{ form.memo }}
+        {{ form.priority }}
+        {{ form.duedate }}
+        <input type="submit" value="Update">
+    </form>
+{% endblock content %}

@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>Detail</title>
-</head>
-<body>
-<ul>
-    <li>{{ object.title }}</li>
-    <li>{{ object.memo }}</li>
-    <li>{{ object.created }}</li>
-</ul>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}Detail{% endblock title %}
+
+{% block header %}
+    <div class="alert alert-dark" role="alert">
+        <h1>Detail</h1>
+    </div>
+{% endblock header %}
+
+{% block content %}
+    <p>{{ object.title }}</p>
+    <p>{{ object.memo }}</p>
+    <p>{{ object.created }}</p>
+{% endblock content %}
